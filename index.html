@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+      .container {
+        background: url("./bg_new.png");
+        width: 621px;
+        height: 1170px;
+        position: relative;
+      }
+
+      .arrow {
+        position: absolute;
+        left: 140px;
+        top: 400px;
+        transform: scale(0.8);
+        /* transform: 50% 50%; */
+      }
+
+      #date {
+        position: absolute;
+        left: 243px;
+        top: 387px;
+        color: #94949e;
+        font-size: 28px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="date">2022.04.11 16:16:41</div>
+      <img src="./gif_green.a6a9b9f2.gif" class="arrow" />
+    </div>
+    <script>
+      const dateElement = document.getElementById("date");
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth() + 1;
+      const date = now.getDate();
+      const hour = now.getHours();
+      const minute = now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes();
+      const second = now.getSeconds() < 10 ? "0" + now.getSeconds() : now.getSeconds();
+      const formatDate = `${year}.${month}.${date} ${hour}:${minute}:${second}`;
+      dateElement.innerText = formatDate;
+    </script>
+  </body>
+</html>
